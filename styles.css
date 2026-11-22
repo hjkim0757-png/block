@@ -1,0 +1,1205 @@
+/* ==========================================================================
+   현장소장 김형준 — 40년 건설 현장 실무 아카이브
+   Color Palette:
+     - Primary Navy: #1E293B
+     - Pure White:   #FFFFFF
+     - Warm Gray:    #F8FAFC
+   ========================================================================== */
+
+:root {
+  --color-primary: #1E293B;
+  --color-primary-dark: #0F172A;
+  --color-primary-soft: #334155;
+  --color-bg-white: #FFFFFF;
+  --color-bg-tinted: #F8FAFC;
+  --color-surface-subtle: #F1F5F9;
+  --color-text: #1E293B;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  --color-border: #E2E8F0;
+  --color-border-strong: #CBD5E1;
+
+  --font-sans: "Pretendard Variable", "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  --container-width: 1080px;
+  --header-height: 72px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 6px 20px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: 0 8px 28px rgba(15, 23, 42, 0.08);
+  --transition: 0.22s ease;
+}
+
+/* 기본 초기화 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg-white);
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/* 접근성 스킵 링크 */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 1000;
+  padding: 10px 16px;
+  background: var(--color-primary);
+  color: var(--color-bg-white);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* 공통 레이아웃 */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+  scroll-margin-top: var(--header-height);
+}
+
+.section--white {
+  background-color: var(--color-bg-white);
+}
+
+.section--tinted {
+  background-color: var(--color-bg-tinted);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-header {
+  max-width: 720px;
+  margin-bottom: 52px;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-primary-soft);
+  margin-bottom: 14px;
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--color-primary);
+}
+
+.section-title {
+  font-size: clamp(1.65rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.38;
+  letter-spacing: -0.025em;
+  color: var(--color-primary);
+}
+
+.section-subtitle {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.section-lead {
+  margin-top: 22px;
+  font-size: 1.06rem;
+  color: var(--color-text-secondary);
+  line-height: 1.85;
+}
+
+.br-desktop {
+  display: inline;
+}
+
+/* ==========================================================================
+   1. 상단 내비게이션 바
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+  flex-shrink: 0;
+}
+
+.brand-mark svg {
+  width: 18px;
+  height: 18px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--color-primary);
+  background-color: var(--color-surface-subtle);
+}
+
+.nav-link--cta {
+  margin-left: 6px;
+  padding: 9px 16px;
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+  font-weight: 600;
+}
+
+.nav-link--cta:hover,
+.nav-link--cta:focus-visible {
+  background-color: var(--color-primary-dark);
+  color: var(--color-bg-white);
+}
+
+/* 모바일 메뉴 버튼 */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-white);
+  cursor: pointer;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav-toggle.is-open .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   2. 첫 화면 (히어로 섹션)
+   ========================================================================== */
+.hero {
+  position: relative;
+  background-color: var(--color-bg-white);
+  background-image: radial-gradient(rgba(30, 41, 59, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+  padding: 88px 0 96px;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.85fr);
+  gap: 52px;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background-color: var(--color-bg-tinted);
+  border: 1px solid var(--color-border);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+}
+
+.hero-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -0.03em;
+  color: var(--color-primary);
+}
+
+.hero-subtitle {
+  margin-top: 22px;
+  max-width: 560px;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--color-text-secondary);
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 버튼 공통 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+  box-shadow: 0 4px 14px rgba(30, 41, 59, 0.16);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(30, 41, 59, 0.22);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-white);
+  color: var(--color-primary);
+  border-color: var(--color-border-strong);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-tinted);
+  border-color: var(--color-primary);
+}
+
+.btn-light {
+  background-color: var(--color-bg-white);
+  color: var(--color-primary);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+}
+
+.btn-light:hover {
+  background-color: var(--color-surface-subtle);
+  transform: translateY(-1px);
+}
+
+/* 히어로 우측 현장소장 프로필 사진 카드 */
+.hero-portrait {
+  margin: 0;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12);
+}
+
+.hero-portrait-frame {
+  position: relative;
+  background-color: var(--color-primary);
+  overflow: hidden;
+}
+
+.hero-portrait-img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.hero-portrait-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 22px;
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+}
+
+.hero-portrait-meta strong {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+.hero-portrait-meta span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.82rem;
+  color: #CBD5E1;
+  line-height: 1.45;
+}
+
+.hero-portrait-badge {
+  flex-shrink: 0;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-bg-white);
+}
+
+/* ==========================================================================
+   3. 현장소장 소개 — 3단 요약 카드
+   ========================================================================== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.summary-card {
+  position: relative;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border-strong);
+}
+
+.summary-index {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.summary-value {
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.summary-desc {
+  margin-top: 10px;
+  font-size: 0.98rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   4. 현장 실무 팁 — 2x2 카드 그리드
+   ========================================================================== */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.tip-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #D8E4F2;
+  border: 1px solid #94A3B8;
+  border-top: 4px solid var(--color-primary-dark);
+  border-radius: var(--radius-md);
+  padding: 32px 30px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+.tip-card:hover {
+  background-color: #C7D8EC;
+  border-color: var(--color-primary);
+  border-top-color: #C2410C;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.tip-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.tip-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background-color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-dark);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-bg-white);
+  letter-spacing: 0.03em;
+}
+
+.tip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: #FED7AA;
+  border: 1px solid #EA580C;
+  color: #9A3412;
+  flex-shrink: 0;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.tip-card:hover .tip-icon {
+  background-color: #C2410C;
+  border-color: #C2410C;
+  color: var(--color-bg-white);
+}
+
+.tip-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tip-title {
+  font-size: 1.24rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-dark);
+  line-height: 1.4;
+}
+
+.tip-desc {
+  margin-top: 12px;
+  font-size: 0.98rem;
+  color: var(--color-primary);
+  line-height: 1.8;
+}
+
+.tip-card--clickable {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.tip-card--clickable:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 3px;
+}
+
+.tip-card-more {
+  display: inline-flex;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #9A3412;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.tip-card--clickable:hover .tip-card-more {
+  color: #C2410C;
+  transform: translateX(3px);
+}
+
+/* 현장 실무 꿀팁 카드뉴스 갤러리 */
+.tip-gallery-wrap {
+  margin-top: 56px;
+  padding-top: 44px;
+  border-top: 1px solid var(--color-border);
+}
+
+.tip-gallery-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.tip-gallery-title {
+  font-size: 1.32rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-dark);
+}
+
+.tip-gallery-sub {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.tip-gallery-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background-color: var(--color-bg-tinted);
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.tip-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tip-thumb {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.tip-thumb:hover,
+.tip-thumb:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-card-hover);
+  outline: none;
+}
+
+.tip-thumb-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-surface-subtle);
+  overflow: hidden;
+}
+
+.tip-thumb-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.32s ease;
+}
+
+.tip-thumb:hover .tip-thumb-media img {
+  transform: scale(1.04);
+}
+
+.tip-thumb-zoom {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background-color: rgba(15, 23, 42, 0.84);
+  color: var(--color-bg-white);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.tip-thumb-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px 18px;
+}
+
+.tip-thumb-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  line-height: 1.4;
+}
+
+.tip-thumb-caption {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* 이미지 팝업 모달 */
+body.modal-open {
+  overflow: hidden;
+}
+
+.tip-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.tip-modal[hidden] {
+  display: none;
+}
+
+.tip-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.tip-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(720px, 100%);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.tip-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+}
+
+.tip-modal-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.tip-modal-counter {
+  flex-shrink: 0;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.16);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.tip-modal-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tip-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-bg-white);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color var(--transition);
+}
+
+.tip-modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.tip-modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tip-modal-stage {
+  background-color: #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow: auto;
+  flex: 1 1 auto;
+}
+
+.tip-modal-img {
+  width: auto;
+  max-width: 100%;
+  max-height: 64vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.tip-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 20px;
+  background-color: var(--color-bg-tinted);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.tip-modal-caption {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  line-height: 1.55;
+  flex: 1 1 280px;
+}
+
+.tip-modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.tip-modal-nav {
+  padding: 9px 15px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-white);
+  color: var(--color-primary);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.tip-modal-nav:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg-white);
+}
+
+/* ==========================================================================
+   5. 자료 내려받기 섹션 (하단 강조 박스)
+   ========================================================================== */
+.download-box {
+  position: relative;
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: 56px 52px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+  overflow: hidden;
+}
+
+.download-box::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.download-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.download-eyebrow {
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #CBD5E1;
+  margin-bottom: 12px;
+}
+
+.download-title {
+  font-size: clamp(1.5rem, 2.8vw, 2.05rem);
+  font-weight: 700;
+  line-height: 1.38;
+  letter-spacing: -0.025em;
+  color: var(--color-bg-white);
+}
+
+.download-desc {
+  margin-top: 16px;
+  font-size: 1.03rem;
+  line-height: 1.8;
+  color: #E2E8F0;
+}
+
+.download-actions {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 20px;
+}
+
+.download-meta {
+  font-size: 0.88rem;
+  color: #CBD5E1;
+}
+
+.download-notice {
+  margin-top: 22px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #F8FAFC;
+}
+
+/* ==========================================================================
+   6. 푸터
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-bg-white);
+  padding: 36px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+.footer-top-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: color var(--transition);
+}
+
+.footer-top-link:hover {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   반응형 스타일 (태블릿 & 모바일)
+   ========================================================================== */
+@media (max-width: 920px) {
+  .hero {
+    padding: 64px 0 72px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .download-box {
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .br-desktop {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-white);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    padding: 12px 20px 18px;
+    display: none;
+  }
+
+  .site-nav.is-open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .nav-link {
+    padding: 12px 14px;
+    justify-content: flex-start;
+  }
+
+  .nav-link--cta {
+    margin-left: 0;
+    margin-top: 6px;
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 52px 0 60px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tip-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .tip-thumb-body {
+    padding: 12px 12px 14px;
+  }
+
+  .tip-thumb-title {
+    font-size: 0.9rem;
+  }
+
+  .tip-thumb-caption {
+    font-size: 0.78rem;
+  }
+
+  .tip-modal {
+    padding: 12px;
+  }
+
+  .tip-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tip-modal-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tip-card,
+  .summary-card {
+    padding: 26px 22px;
+  }
+
+  .download-box {
+    padding: 34px 24px;
+    border-radius: var(--radius-md);
+  }
+
+  .download-actions .btn {
+    width: 100%;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

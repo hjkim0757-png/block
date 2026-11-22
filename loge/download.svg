@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+<title id="title">현장안전 관리 캐릭터 로고</title><desc id="desc">안경을 쓴 현장 관리자가 안전모와 남색 조끼를 입고 엄지를 든 캐릭터 로고.</desc>
+<rect width="960" height="560" rx="36" fill="#fff"/>
+<!-- badge -->
+<circle cx="280" cy="276" r="222" fill="#123B5D"/>
+<circle cx="280" cy="276" r="204" fill="none" stroke="#fff" stroke-opacity=".24" stroke-width="3"/>
+<!-- shoulders and vest -->
+<path d="M105 443c15-77 70-119 139-129h74c70 10 126 52 140 129v46H105z" fill="#F28C28"/>
+<path d="M122 441c13-62 59-99 121-112l30 37 31-37c63 12 108 50 121 112v31H122z" fill="#263D50"/>
+<path d="m243 329 30 37-24 107-46-112zM303 329l-30 37 24 107 47-112z" fill="#36556A"/>
+<path d="M270 367v107" stroke="#F4F6F7" stroke-width="5"/>
+<rect x="314" y="401" width="54" height="39" rx="5" fill="#fff"/><path d="M323 412h36M323 422h27" stroke="#123B5D" stroke-width="4" stroke-linecap="round"/>
+<!-- neck and face -->
+<path d="M239 286h82v61c-5 22-20 35-41 35s-36-13-41-35z" fill="#D99B72"/>
+<path d="M171 190c0-75 42-119 109-119 68 0 109 44 109 119v73c0 72-49 111-109 111-61 0-109-39-109-111z" fill="#E8B18B" stroke="#123B5D" stroke-width="7"/>
+<!-- ears -->
+<path d="M172 217c-24-9-34 7-31 32 3 22 15 36 35 34M388 217c24-9 34 7 31 32-3 22-15 36-35 34" fill="#D99B72" stroke="#123B5D" stroke-width="7"/>
+<!-- hair -->
+<path d="M181 184c2-61 37-99 101-99 56 0 95 36 99 99-15-13-25-23-34-42-19 17-52 26-96 25-28-1-50 7-70 17z" fill="#384450"/>
+<!-- helmet -->
+<path d="M156 172c3-71 56-119 126-119 72 0 124 48 128 119z" fill="#D8E3EB" stroke="#123B5D" stroke-width="8"/>
+<path d="M281 57v112M221 76l17 95M341 76l-17 95" fill="none" stroke="#A8BAC8" stroke-width="9" stroke-linecap="round"/>
+<path d="M142 166h282c-3 23-17 35-39 35H181c-22 0-36-12-39-35z" fill="#F28C28" stroke="#123B5D" stroke-width="7"/>
+<path d="M174 185h218" stroke="#FFD08A" stroke-width="5" stroke-linecap="round"/>
+<!-- glasses, eyes, nose, smile -->
+<path d="M188 221h75c10 0 16 6 16 16v13c0 21-14 32-35 32h-24c-20 0-32-13-32-33zM287 237c0-10 6-16 16-16h75v28c0 20-12 33-32 33h-24c-21 0-35-11-35-32z" fill="#F5F1EC" fill-opacity=".3" stroke="#263D50" stroke-width="8"/>
+<path d="M279 240h13M195 233h42M305 233h42" stroke="#263D50" stroke-width="7" stroke-linecap="round"/>
+<ellipse cx="234" cy="249" rx="8" ry="10" fill="#263D50"/><ellipse cx="334" cy="249" rx="8" ry="10" fill="#263D50"/>
+<path d="M280 251c-2 19-10 39-8 44 3 5 12 6 19 3" fill="none" stroke="#B97758" stroke-width="6" stroke-linecap="round"/>
+<path d="M246 319c20 19 49 20 70 0" fill="none" stroke="#9D574A" stroke-width="7" stroke-linecap="round"/>
+<!-- raised thumbs up -->
+<path d="M410 394c10-22 24-45 36-51 9-4 17 4 14 14l-9 26 27-2c13-1 19 10 14 20l-10 21c-4 9-14 15-25 15h-33c-18 0-27-21-14-43z" fill="#E8B18B" stroke="#123B5D" stroke-width="6" stroke-linejoin="round"/>
+<!-- wordmark -->
+<text x="555" y="219" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="56" font-weight="900" letter-spacing="-3" fill="#123B5D">현장안전</text>
+<text x="555" y="290" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="56" font-weight="900" letter-spacing="-3" fill="#123B5D">관리</text>
+<path d="M558 318h245" stroke="#F28C28" stroke-width="8" stroke-linecap="round"/>
+<text x="558" y="365" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="20" font-weight="700" letter-spacing="2" fill="#526575">SITE SAFETY · FIELD CONTROL</text>
+<text x="558" y="414" font-family="'Noto Sans KR','Malgun Gothic',sans-serif" font-size="19" font-weight="600" fill="#7A8994">안전하게 짓고, 함께 완성하다</text>
+</svg>
